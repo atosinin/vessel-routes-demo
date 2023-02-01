@@ -6,7 +6,8 @@
 
         // Tables
 
-        IWhateverRepository Whatevers { get; }
+        IVesselRepository Vessels { get; }
+        IPositionRepository Positions { get; }
 
         // Methods
 

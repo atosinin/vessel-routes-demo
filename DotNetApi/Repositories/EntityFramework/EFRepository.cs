@@ -2,9 +2,9 @@
 {
     public class EFRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected readonly WhateverContext _efContext;
+        protected readonly VesselContext _efContext;
 
-        public EFRepository(WhateverContext context)
+        public EFRepository(VesselContext context)
         {
             _efContext = context;
         }

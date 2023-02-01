@@ -2,16 +2,18 @@
 {
     public class EFUnitOfWork : IUnitOfWork
     {
-        private readonly WhateverContext _context;
+        private readonly VesselContext _context;
 
         // Tables
-        public IWhateverRepository Whatevers { get; private set; }
+        public IVesselRepository Vessels { get; private set; }
+        public IPositionRepository Positions { get; private set; }
 
         // Constructor
-        public EFUnitOfWork(WhateverContext context)
+        public EFUnitOfWork(VesselContext context)
         {
             _context = context;
-            Whatevers = new EFWhateverRepository(_context);
+            Vessels = new EFVesselRepository(_context);
+            Positions = new EFPositionRepository(_context);
         }
 
         // Methods
