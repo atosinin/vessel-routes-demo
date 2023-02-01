@@ -4,10 +4,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
-import { HomeLayoutComponent, MyWhateversPageComponent } from '.';
+import { AllVesselsPageComponent } from '.';
 import { HomeRouting } from '../../routing/home.routing';
 import { GlobalModule } from '../global/global.module';
-import { WhateverModule } from '../whatever/whatever.module';
+import { VesselModule } from '../vessel/vessel.module';
 
 @NgModule({
   imports: [
@@ -18,11 +18,10 @@ import { WhateverModule } from '../whatever/whatever.module';
     MatCardModule,
     HomeRouting,
     GlobalModule,
-    WhateverModule,
+    VesselModule,
   ],
   declarations: [
-    HomeLayoutComponent,
-    MyWhateversPageComponent,
+    AllVesselsPageComponent,
   ],
   providers: [],
   exports: [],

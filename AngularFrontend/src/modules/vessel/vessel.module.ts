@@ -8,7 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { RouterModule } from '@angular/router';
-import { WhateverFormDialogComponent, WhateverTableComponent } from '.';
+import { VesselTableComponent } from '.';
+import { RoutesDetailsComponent } from './components/routes.details.component';
 
 @NgModule({
   imports: [
@@ -23,12 +24,13 @@ import { WhateverFormDialogComponent, WhateverTableComponent } from '.';
     MatPaginatorModule,
   ],
   declarations: [
-    WhateverTableComponent,
-    WhateverFormDialogComponent,
+    VesselTableComponent,
+    RoutesDetailsComponent,
   ],
   providers: [],
   exports: [
-    WhateverTableComponent,
+    VesselTableComponent,
+    RoutesDetailsComponent,
   ],
 })
-export class WhateverModule { }
+export class VesselModule { }

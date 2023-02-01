@@ -1,2 +1,1 @@
-export { HomeLayoutComponent } from "./components/home.layout.component";
-export { MyWhateversPageComponent } from "./components/my.whatevers.page.component";
+export { AllVesselsPageComponent } from "./components/all.vessels.page.component";

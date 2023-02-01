@@ -1,22 +1,29 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { HomeLayoutComponent, MyWhateversPageComponent } from "../modules/home";
+import { NotFoundPageComponent } from "../modules/global";
+import { AllVesselsPageComponent } from "../modules/home";
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeLayoutComponent,
     children: [
       {
         path: '',
-        redirectTo: 'myWhatevers',
+        redirectTo: 'AllVesselRoutes',
         pathMatch: "full"
       },
       {
-        path: 'myWhatevers',
-        component: MyWhateversPageComponent,
+        path: 'AllVesselRoutes',
+        component: AllVesselsPageComponent,
         data: {
-          title: 'All my whatevers'
+          title: 'All vessel routes'
+        }
+      },
+      {
+        path: 'NotFound',
+        component: NotFoundPageComponent,
+        data: {
+          title: 'Not found'
         }
       },
     ]

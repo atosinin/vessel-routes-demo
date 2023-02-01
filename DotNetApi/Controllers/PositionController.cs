@@ -24,9 +24,9 @@ namespace DotNetApi.Controllers
             return Ok(allPositionDTOs);
         }
 
-        // GET /api/Position/VesselId/{vesselId}
-        [HttpGet("UserAccount/{vesselId}")]
-        public IActionResult GetAllByUserAccountId(int vesselId)
+        // GET /api/Position/Vessel/{vesselId}
+        [HttpGet("Vessel/{vesselId}")]
+        public IActionResult GetAllByVesselId(int vesselId)
         {
             List<PositionDTO> allPositionDTOs = _positionServices.GetAllPositionDTOsByVesselId(vesselId);
             return Ok(allPositionDTOs);

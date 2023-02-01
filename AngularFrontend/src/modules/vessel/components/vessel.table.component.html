@@ -2,29 +2,27 @@
   <table mat-table [dataSource]="dataSource">
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    <ng-container matColumnDef="whateverId">
+    <ng-container matColumnDef="vesselId">
       <th mat-header-cell *matHeaderCellDef>Id</th>
-      <td mat-cell *matCellDef="let element">{{ element.whateverId }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.vesselId }}</td>
     </ng-container>
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let element">{{ element.name }}</td>
     </ng-container>
-    <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef>Description</th>
-      <td mat-cell *matCellDef="let element">{{ element.description }}</td>
-    </ng-container>
-    <ng-container matColumnDef="userAccountId">
-      <th mat-header-cell *matHeaderCellDef>UserAccountId</th>
-      <td mat-cell *matCellDef="let element">{{ element.userAccountId }}</td>
-    </ng-container>
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-icon-button color="primary" aria-label="Edit" (click)="onEdit(element)">
+        <button mat-icon-button color="primary" aria-label="Edit" (click)="handleEdit(element)">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button color="warn" aria-label="Delete" (click)="onDelete(element)">
+        <button *ngIf="!element.isOnDisplay" mat-icon-button color="primary" aria-label="View" (click)="handleView(element)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button *ngIf="element.isOnDisplay" mat-icon-button color="primary" aria-label="View" (click)="handleView(element)">
+          <mat-icon>visibility_off</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" aria-label="Delete" (click)="handleDelete(element)">
           <mat-icon>delete</mat-icon>
         </button>
       </td>
@@ -32,6 +30,6 @@
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 50]"
                  showFirstLastButtons
-                 aria-label="Select page of whatevers">
+                 aria-label="Select page of vessels">
   </mat-paginator>
 </div>

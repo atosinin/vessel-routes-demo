@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: './error.page.component.html'
+  templateUrl: './layout.component.html'
 })
-export class ErrorPageComponent {
+export class LayoutComponent {
   constructor() { }
 }

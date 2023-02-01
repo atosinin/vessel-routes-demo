@@ -12,31 +12,31 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$whatever-primary: mat.define-palette(mat.$amber-palette);
-$whatever-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$vessel-primary: mat.define-palette(mat.$blue-palette);
+$vessel-accent: mat.define-palette(mat.$yellow-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$whatever-warn: mat.define-palette(mat.$red-palette);
+$vessel-warn: mat.define-palette(mat.$red-palette);
 
 // Typography
-$whatever-typography: mat.define-typography-config(
+$vessel-typography: mat.define-typography-config(
   $font-family: 'Roboto',
 );
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
 
-$whatever-theme: mat.define-light-theme((
+$vessel-theme: mat.define-light-theme((
   color: (
-    primary: $whatever-primary,
-    accent: $whatever-accent,
-    warn: $whatever-warn,
+    primary: $vessel-primary,
+    accent: $vessel-accent,
+    warn: $vessel-warn,
   ),
-  typography: $whatever-typography
+  typography: $vessel-typography
 ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($whatever-theme);
+@include mat.all-component-themes($vessel-theme);
 

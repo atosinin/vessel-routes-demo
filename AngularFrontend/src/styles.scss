@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import './custom-theme.scss';
+
 html, body {
   height: 100%;
   box-sizing: border-box;
@@ -24,6 +26,11 @@ body {
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }
 
 .flex-horizontal-align {
@@ -76,4 +83,8 @@ $default-margin: 10px;
 
 .mat-mdc-form-field {
   overflow: auto;
+}
+
+.primary-background {
+    background: map-get($vessel-primary, 500) !important;
 }

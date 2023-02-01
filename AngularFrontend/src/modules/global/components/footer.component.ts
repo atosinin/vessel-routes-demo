@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'whatever-footer',
+  selector: 'vessel-footer',
   templateUrl: './footer.component.html',
 })
 export class FooterComponent {

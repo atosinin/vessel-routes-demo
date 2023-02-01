@@ -1,41 +1,23 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { LoggedInGuard } from "../helpers/auth.guard";
-import { ErrorPageComponent } from "../modules/global";
+import { NotFoundPageComponent } from "../modules/global";
+import { LayoutComponent } from "../modules/global/components/layout.component";
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'identity',
-    pathMatch: "full"
-  },
-  {
-    path: 'error',
-    component: ErrorPageComponent,
-    data: {
-      title: 'Erreur'
-    }
-  },
-  {
-    path: '',
+    component: LayoutComponent,
     children: [
       {
-        path: 'identity',
-        loadChildren: () => import('../modules/identity/identity.module').then(m => m.IdentityModule)
-      },
-      {
-        path: 'home',
-        canActivate: [LoggedInGuard],
+        path: '',
         loadChildren: () => import('../modules/home/home.module').then(m => m.HomeModule)
       },
     ]
   },
   {
     path: '**',
-    component: ErrorPageComponent,
-    data: {
-      title: 'Error'
-    }
+    redirectTo: 'NotFound',
+    pathMatch: 'full'
   }
 ];
 

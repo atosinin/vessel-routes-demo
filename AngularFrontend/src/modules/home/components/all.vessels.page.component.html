@@ -1,0 +1,38 @@
+<div class="flex-row">
+  <div class="flex-horizontal-align mt-d mb-d ml-d" style="width: 40%">
+    <mat-card class="medium-card primary-background" style="width: 100%;">
+      <mat-card-header class="mb-d">
+        <mat-card-title>
+          All vessel routes
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <vessel-table [vessels]="allVesselRoutes"
+                      (onEdit)="handleEdit($event)"
+                      (onView)="handleView($event)"
+                      (onDelete)="handleDelete($event)"
+                      style="max-width: 95%;">
+        </vessel-table>
+      </mat-card-content>
+      <mat-card-actions class="mt-d" align="end">
+        <button type="button" mat-raised-button color="accent"
+                (click)="handleAdd()" [disabled]="isLoading">
+          Add vessel
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div class="flex-horizontal-align mt-d mb-d ml-d mr-d" style="width: 60%">
+    <mat-card class="medium-card primary-background" style="width: 100%">
+      <mat-card-header class="mb-d">
+        <mat-card-title>
+          Routes details
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <vessel-routes-details [vessels]="routesToDisplay"></vessel-routes-details>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>

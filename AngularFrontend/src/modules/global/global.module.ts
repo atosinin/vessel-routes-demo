@@ -1,17 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import {
-  ErrorPageComponent,
-  FooterComponent,
-  HeaderComponent,
-  AlertDialogComponent,
-  YesNoDialogComponent
+    AlertDialogComponent, FooterComponent,
+    HeaderComponent, NotFoundPageComponent, YesNoDialogComponent
 } from '.';
+import { LayoutComponent } from './components/layout.component';
 
 @NgModule({
   imports: [
@@ -21,9 +21,12 @@ import {
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
+    FlexLayoutModule,
+    MatCardModule,
   ],
   declarations: [
-    ErrorPageComponent,
+    NotFoundPageComponent,
+    LayoutComponent,
     HeaderComponent,
     FooterComponent,
     AlertDialogComponent,

@@ -1,24 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { UserAccountDTO } from '../../../models/identity.models';
-import { IdentityService } from '../../../services/identity.service';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'whatever-header',
+  selector: 'vessel-header',
   templateUrl: './header.component.html'
 })
-export class HeaderComponent implements OnInit {
-
-  public isLoggedIn: boolean = false;
+export class HeaderComponent {
 
   constructor(
-    private identityService: IdentityService,
   ) { }
-
-  ngOnInit(): void {
-    this.isLoggedIn = this.identityService.isLoggedIn();
-  }
-
-  logout(): void {
-    this.identityService.logout();
-  }
 }
