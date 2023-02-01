@@ -12,6 +12,7 @@ namespace DotNetApi.Services
         void CreateFromVesselDTO(VesselDTO vesselCreateDTO);
         void UpdateFromVesselDTO(VesselDTO vesselUpdateDTO);
         void DeleteVesselById(int vesselId);
+        void Import(VesselRoutesImport vessels);
     }
 
     public class VesselService : IVesselService
@@ -66,6 +67,31 @@ namespace DotNetApi.Services
                 throw new BadRequestException("Invalid Id for table 'Vessel'");
             _uow.Vessels.Delete(vessel);
             _uow.SaveChanges();
+        }
+
+        public void Import(VesselRoutesImport import)
+        {
+            foreach (RouteImport vesselImport in import.vessels)
+            {
+                Vessel vesselToCreate = new()
+                {
+                    Name = vesselImport.name
+                };
+                _uow.Vessels.Create(vesselToCreate);
+                _uow.SaveChanges();
+                foreach (PositionImport positionImport in vesselImport.positions)
+                {
+                    Position positionToCreate = new()
+                    {
+                        VesselId = vesselToCreate.VesselId,
+                        X = positionImport.x,
+                        Y = positionImport.y,
+                        Timestamp = DateTime.ParseExact(positionImport.timestamp, "yyyy-MM-ddTHH:mmZ", null).ToUniversalTime()
+                    };
+                    _uow.Positions.Create(positionToCreate);
+                }
+                _uow.SaveChanges();
+            }
         }
     }
 }

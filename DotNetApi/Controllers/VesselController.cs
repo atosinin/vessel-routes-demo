@@ -1,6 +1,7 @@
 using DotNetApi.Models;
 using DotNetApi.Services;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace DotNetApi.Controllers
 {
@@ -53,6 +54,16 @@ namespace DotNetApi.Controllers
         public IActionResult Delete(int id)
         {
             _vesselServices.DeleteVesselById(id);
+            return Ok();
+        }
+
+        // POST /api/Vessel/Import
+        [HttpPost("Import")]
+        public IActionResult Import([FromBody] string importString)
+        {
+            VesselRoutesImport? vessels = JsonConvert.DeserializeObject<VesselRoutesImport>(importString);
+            if (vessels is not null)
+                _vesselServices.Import(vessels);
             return Ok();
         }
     }

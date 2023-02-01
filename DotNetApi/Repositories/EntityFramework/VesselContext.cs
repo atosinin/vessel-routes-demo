@@ -22,10 +22,6 @@ namespace DotNetApi.Repositories.EntityFramework
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            // Seed database with user roles and admins
-            modelBuilder.ApplyConfiguration(new EFVesselConfiguration());
-            modelBuilder.ApplyConfiguration(new EFPositionConfiguration());
         }
     }
 }
