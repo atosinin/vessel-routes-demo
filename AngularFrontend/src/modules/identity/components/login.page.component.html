@@ -1,0 +1,42 @@
+<div class="flex-horizontal-align">
+  <mat-card class="medium-card">
+    <mat-card-header class="mb-d">
+      <mat-card-title>Sign in</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-divider></mat-divider>
+      <div class="flex-column mt-d" [formGroup]="loginForm">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput type="text" formControlName="email" />
+          <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+            Required.
+          </mat-error>
+          <mat-error *ngIf="loginForm.controls['email'].hasError('email')">
+            Not an email.
+          </mat-error>
+          <mat-error *ngIf="loginForm.controls['email'].hasError('backendValidation')">
+            {{ getBackendValidationErrorMessage('email') }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" />
+          <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+            Required.
+          </mat-error>
+          <mat-error *ngIf="loginForm.controls['password'].hasError('backendValidation')">
+            {{ getBackendValidationErrorMessage('password') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <mat-divider></mat-divider>
+      <button type="button" mat-raised-button color="primary" class="mt-d"
+        (click)="onSubmit()" [disabled]="loginForm.invalid || isLoading">
+        Sign In
+      </button>
+      <a [routerLink]="['/identity/register']" mat-raised-button color="accent" class="mt-d ml-d">Not registered yet?</a>
+      <a [routerLink]="['/identity/forgottenPassword']" mat-raised-button color="accent" class="mt-d ml-d">Forgot your password?</a>
+    </mat-card-content>
+  </mat-card>
+</div>
