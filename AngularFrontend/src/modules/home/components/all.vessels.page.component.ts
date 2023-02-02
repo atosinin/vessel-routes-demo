@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { first, Subject, takeUntil } from 'rxjs';
+import { findIntersectionsForRoutes } from '../../../helpers/find.intersections';
 import { VesselDTO } from '../../../models/api.models';
 import { VesselWithDisplay } from '../../../models/vessel.models';
 import { AlertService } from '../../../services/alert.services';
@@ -106,6 +107,16 @@ export class AllVesselsPageComponent implements OnInit, OnDestroy {
   }
 
   handleCheckIntersections(): void {
-    this.alertService.warning("TODO");
+    let intersections = findIntersectionsForRoutes(this.routesToDisplay, { deltaDistanceInKilometers: 5, deltaTimeInMinutes: 10 });
+    if (intersections.length) {
+      let message = `Found intersection for routes:`;
+      for (let i of intersections) {
+        const allVessels = i.vessels.map(v => ` ${this.routesToDisplay.find(r => r.vesselId == v.vesselId)?.name} will be present around ${v.arrivesIn}`)
+        message += ` Close by (${i.xMidZone}, ${i.yMidZone}),${allVessels}.`;
+      }
+      this.alertService.success(message);
+    } else {
+      this.alertService.warning("No intersection found for these routes.");
+    }
   }
 }
