@@ -12,6 +12,11 @@ import { RouterModule } from '@angular/router';
 import { VesselTableComponent } from '.';
 import { RoutesDetailsComponent } from './components/routes.details.component';
 
+import * as PlotlyJS from 'plotly.js-dist-min';
+import { PlotlyModule } from 'angular-plotly.js';
+
+PlotlyModule.plotlyjs = PlotlyJS;
+
 @NgModule({
   imports: [
     CommonModule,
@@ -24,6 +29,7 @@ import { RoutesDetailsComponent } from './components/routes.details.component';
     MatIconModule,
     MatPaginatorModule,
     MatCardModule,
+    PlotlyModule,
   ],
   declarations: [
     VesselTableComponent,

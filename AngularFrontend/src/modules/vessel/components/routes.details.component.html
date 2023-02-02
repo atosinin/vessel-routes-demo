@@ -1,20 +1,3 @@
-<div class="flex-row">
-  <mat-card
-            *ngFor="let vessel of vessels; let i = index;"
-            class="mat-elevation-z5 accent-background"
-            [ngClass]="i ? 'ml-d' : '' "
-            style="max-width: 33%;">
-    <mat-card-header class="mb-d">
-      <mat-card-title>
-        {{ vessel.name }}
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <ul>
-        <li *ngFor="let position of vessel.positions">
-          ({{ position.x }},{{ position.y }}) at {{ position.timestamp }}
-        </li>
-      </ul>
-    </mat-card-content>
-  </mat-card>
+<div class="flex-horizontal-align">
+  <plotly-plot [data]="data" [layout]="layout"></plotly-plot>
 </div>

@@ -76,6 +76,8 @@ export class AllVesselsPageComponent implements OnInit, OnDestroy {
           next: allPositions => {
             vessel.positions = allPositions;
             this.routesToDisplay.push(vessel as VesselDTO);
+            // to force detect change in child component
+            this.routesToDisplay = [...this.routesToDisplay];
           },
           error: err => {
             this.alertService.error(err);
@@ -84,6 +86,8 @@ export class AllVesselsPageComponent implements OnInit, OnDestroy {
     } else {
       let indexToDisplay = this.routesToDisplay.findIndex(v => v.vesselId == vessel.vesselId);
       this.routesToDisplay.splice(indexToDisplay, 1);
+      // to force detect change in child component
+      this.routesToDisplay = [...this.routesToDisplay];
     }
   }
 
@@ -107,7 +111,7 @@ export class AllVesselsPageComponent implements OnInit, OnDestroy {
   }
 
   handleCheckIntersections(): void {
-    let intersections = findIntersectionsForRoutes(this.routesToDisplay, { deltaDistanceInKilometers: 5, deltaTimeInMinutes: 10 });
+    let intersections = findIntersectionsForRoutes(this.routesToDisplay, { deltaDistanceInKilometers: 2, deltaTimeInMinutes: 5 });
     if (intersections.length) {
       let message = `Found intersection for routes:`;
       for (let i of intersections) {
