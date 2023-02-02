@@ -16,11 +16,9 @@
         <button mat-icon-button color="primary" aria-label="Edit" (click)="handleEdit(element)">
           <mat-icon>edit</mat-icon>
         </button>
-        <button *ngIf="!element.isOnDisplay" mat-icon-button color="primary" aria-label="View" (click)="handleView(element)">
-          <mat-icon>visibility</mat-icon>
-        </button>
-        <button *ngIf="element.isOnDisplay" mat-icon-button color="primary" aria-label="View" (click)="handleView(element)">
-          <mat-icon>visibility_off</mat-icon>
+        <button mat-icon-button color="primary" aria-label="View" (click)="handleView(element)">
+          <mat-icon *ngIf="!element.isOnDisplay">visibility</mat-icon>
+          <mat-icon *ngIf="element.isOnDisplay">visibility_off</mat-icon>
         </button>
         <button mat-icon-button color="warn" aria-label="Delete" (click)="handleDelete(element)">
           <mat-icon>delete</mat-icon>

@@ -1,12 +1,12 @@
 <div class="flex-row">
   <div class="flex-horizontal-align mt-d mb-d ml-d" style="width: 40%">
-    <mat-card class="medium-card primary-background" style="width: 100%;">
+    <mat-card class="primary-background" style="width: 100%;">
       <mat-card-header class="mb-d">
         <mat-card-title>
           All vessel routes
         </mat-card-title>
       </mat-card-header>
-      <mat-card-content>
+      <mat-card-content class="flex-spacer">
         <vessel-table [vessels]="allVesselRoutes"
                       (onEdit)="handleEdit($event)"
                       (onView)="handleView($event)"
@@ -23,15 +23,21 @@
     </mat-card>
   </div>
   <div class="flex-horizontal-align mt-d mb-d ml-d mr-d" style="width: 60%">
-    <mat-card class="medium-card primary-background" style="width: 100%">
+    <mat-card class="primary-background" style="width: 100%">
       <mat-card-header class="mb-d">
         <mat-card-title>
           Routes details
         </mat-card-title>
       </mat-card-header>
-      <mat-card-content>
+      <mat-card-content class="flex-spacer">
         <vessel-routes-details [vessels]="routesToDisplay"></vessel-routes-details>
       </mat-card-content>
+      <mat-card-actions class="mt-d" align="end">
+        <button type="button" mat-raised-button color="accent"
+                (click)="handleCheckIntersections()" [disabled]="isLoading">
+          Find intersections for routes
+        </button>
+      </mat-card-actions>
     </mat-card>
   </div>
 

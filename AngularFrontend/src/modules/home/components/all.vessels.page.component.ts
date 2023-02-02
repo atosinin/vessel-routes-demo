@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { first, Subject, takeUntil } from 'rxjs';
-import { VesselDTO, VesselWithDisplay } from '../../../models/api.models';
+import { VesselDTO } from '../../../models/api.models';
+import { VesselWithDisplay } from '../../../models/vessel.models';
 import { AlertService } from '../../../services/alert.services';
 import { PositionService } from '../../../services/position.service';
 import { VesselService } from '../../../services/vessel.service';
@@ -102,5 +103,9 @@ export class AllVesselsPageComponent implements OnInit, OnDestroy {
           this.alertService.error(err);
         }
       });
+  }
+
+  handleCheckIntersections(): void {
+    this.alertService.warning("TODO");
   }
 }

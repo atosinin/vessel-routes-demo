@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { VesselTableComponent } from '.';
 import { RoutesDetailsComponent } from './components/routes.details.component';
@@ -22,6 +23,7 @@ import { RoutesDetailsComponent } from './components/routes.details.component';
     MatTableModule,
     MatIconModule,
     MatPaginatorModule,
+    MatCardModule,
   ],
   declarations: [
     VesselTableComponent,

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { VesselWithDisplay } from '../../../models/api.models';
+import { VesselWithDisplay } from '../../../models/vessel.models';
 
 @Component({
   selector: 'vessel-table',

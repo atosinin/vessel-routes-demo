@@ -58,11 +58,6 @@ body {
   margin: 0;
 }
 
-.medium-card {
-  width: 60%;
-  min-width: 280px;
-}
-
 $default-margin: 10px;
 
 .mt-d {
@@ -86,5 +81,9 @@ $default-margin: 10px;
 }
 
 .primary-background {
-    background: map-get($vessel-primary, 500) !important;
+  background: map-get($vessel-primary, 500) !important;
+}
+
+.accent-background {
+  background: map-get($vessel-accent, 200) !important;
 }
